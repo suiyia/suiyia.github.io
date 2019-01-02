@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.suiyia.com/2019/01/02/%E5%B1%95%E6%9C%9B-2019/</loc>
+    
+    <lastmod>2019-01-02T15:44:08.162Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.suiyia.com/tags/index.html</loc>
     
     <lastmod>2018-12-23T14:21:42.113Z</lastmod>
@@ -16,14 +23,14 @@
   </url>
   
   <url>
-    <loc>http://www.suiyia.com/links/index.html</loc>
+    <loc>http://www.suiyia.com/categories/index.html</loc>
     
     <lastmod>2018-12-23T14:21:42.109Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.suiyia.com/categories/index.html</loc>
+    <loc>http://www.suiyia.com/links/index.html</loc>
     
     <lastmod>2018-12-23T14:21:42.109Z</lastmod>
     
@@ -47,27 +54,6 @@
     <loc>http://www.suiyia.com//404.html</loc>
     
     <lastmod>2018-12-23T14:21:42.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.suiyia.com/2018/12/23/123/</loc>
-    
-    <lastmod>2018-12-23T14:15:40.575Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.suiyia.com/2018/12/23/11/</loc>
-    
-    <lastmod>2018-12-23T14:15:33.829Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.suiyia.com/2018/12/23/hello-world/</loc>
-    
-    <lastmod>2018-12-23T13:44:37.155Z</lastmod>
     
   </url>
   
