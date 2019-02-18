@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.suiyia.com/2019/01/02/%E5%B1%95%E6%9C%9B-2019/</loc>
+    <loc>http://suiyia.github.io/2019/02/18/Redis%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%8EJedis%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2019-02-18T13:25:53.081Z</lastmod>
+  </url>  <url>
+    <loc>http://suiyia.github.io/2019/01/02/%E5%B1%95%E6%9C%9B-2019/</loc>
     <lastmod>2019-01-02T15:44:08.162Z</lastmod>
   </url>
 </urlset>
