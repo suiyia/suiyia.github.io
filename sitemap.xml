@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://suiyia.github.io/2019/02/18/Java-%E4%B8%AD%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92/</loc>
+    
+    <lastmod>2019-02-18T15:17:12.441Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://suiyia.github.io/2019/02/18/Redis%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%8EJedis%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2019-02-18T13:58:14.782Z</lastmod>
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://suiyia.github.io/categories/index.html</loc>
+    <loc>http://suiyia.github.io/links/index.html</loc>
     
     <lastmod>2018-12-23T14:21:42.109Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://suiyia.github.io/links/index.html</loc>
+    <loc>http://suiyia.github.io/categories/index.html</loc>
     
     <lastmod>2018-12-23T14:21:42.109Z</lastmod>
     
