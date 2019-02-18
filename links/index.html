@@ -37,8 +37,6 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
-  
   
   
 </head>
@@ -189,6 +187,7 @@
         <div id="board">
             <div class="content">
                 不定期更新微信公众号：菜鸟日常
+                <div align="center"><img src="/images/caijicoder-qrcode.jpg" width="140" height="140"></div>
             </div>
         </div>
     </div>
@@ -275,7 +274,9 @@
   
   <section id="comments">
   	
-
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
     
   </section>
 
@@ -334,23 +335,20 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
-<script>
-var gitment = new Gitment({
-  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
-  // https://github.com/imsun/gitment/issues/55
-  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: '友情链接', 
-  owner: 'suiyia', // 可以是你的GitHub用户名，也可以是github id
-  repo: 'https://github.com/suiyia/suiyia.github.io',
-  oauth: {
-    client_id: '75fbb28e17190a8a4bac',
-    client_secret: 'a067f2d74ed4bc3af42b31846d3674db862eb6f5',
-  }
-})
-gitment.render('comments')
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://suiyia.github.io/links/index.html';
+        
+        this.page.identifier = '';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'suiyia-1' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
-
 
 
 
