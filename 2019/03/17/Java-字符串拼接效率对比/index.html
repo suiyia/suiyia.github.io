@@ -17,20 +17,24 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>展望 2019 ！ | 菜鸟日常的博客</title>
-  <meta name="description" content="回首 2018，毕业、入职，名校光环不再，浪潮褪去，原来我一直在裸泳。 作为已经工作半年的「职场新人」，仍有许多的不足和需要学习的地方。激情是年轻人应该拥有的东西，没有梦想，和咸鱼一样，我不甘心！ 制定好目标，坚持的执行下去，总会有好的结果。  坚持看书，每天花一个小时看书。自己思考、总结，把书中的想法总结出来，提升了思维也锻炼了写作能力。  坚持写博客，从公司项目中了解框架，既熟悉了业务，也运用">
+  <title>Java 字符串拼接效率对比 | 菜鸟日常的博客</title>
+  <meta name="description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
+<meta name="keywords" content="String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="展望 2019 ！">
-<meta property="og:url" content="http://suiyia.github.io/2019/01/02/展望-2019/index.html">
+<meta property="og:title" content="Java 字符串拼接效率对比">
+<meta property="og:url" content="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/index.html">
 <meta property="og:site_name" content="菜鸟日常">
-<meta property="og:description" content="回首 2018，毕业、入职，名校光环不再，浪潮褪去，原来我一直在裸泳。 作为已经工作半年的「职场新人」，仍有许多的不足和需要学习的地方。激情是年轻人应该拥有的东西，没有梦想，和咸鱼一样，我不甘心！ 制定好目标，坚持的执行下去，总会有好的结果。  坚持看书，每天花一个小时看书。自己思考、总结，把书中的想法总结出来，提升了思维也锻炼了写作能力。  坚持写博客，从公司项目中了解框架，既熟悉了业务，也运用">
+<meta property="og:description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-02T15:44:08.162Z">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/E06E2A8F7F51469DAFA40E6A9D43EA2B?ynotemdtimestamp=1552808544738">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/06E6477B2E6F4209B3DA88D5BF43E5F8?ynotemdtimestamp=1552808544738">
+<meta property="og:updated_time" content="2019-03-17T07:43:22.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="展望 2019 ！">
-<meta name="twitter:description" content="回首 2018，毕业、入职，名校光环不再，浪潮褪去，原来我一直在裸泳。 作为已经工作半年的「职场新人」，仍有许多的不足和需要学习的地方。激情是年轻人应该拥有的东西，没有梦想，和咸鱼一样，我不甘心！ 制定好目标，坚持的执行下去，总会有好的结果。  坚持看书，每天花一个小时看书。自己思考、总结，把书中的想法总结出来，提升了思维也锻炼了写作能力。  坚持写博客，从公司项目中了解框架，既熟悉了业务，也运用">
+<meta name="twitter:title" content="Java 字符串拼接效率对比">
+<meta name="twitter:description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/E06E2A8F7F51469DAFA40E6A9D43EA2B?ynotemdtimestamp=1552808544738">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://suiyia.github.io/2019/01/02/展望-2019/index.html">
+  <link rel="canonical" href="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/index.html">
   
     <link rel="alternate" href="/atom.xml" title="菜鸟日常" type="application/atom+xml">
   
@@ -244,14 +248,14 @@
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-展望-2019" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <article id="post-Java-字符串拼接效率对比" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      展望 2019 ！
+      Java 字符串拼接效率对比
     </h1>
   
 
@@ -259,12 +263,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/01/02/展望-2019/" class="article-date">
-	  <time datetime="2019-01-02T14:28:00.000Z" itemprop="datePublished">2019-01-02</time>
+	<a href="/2019/03/17/Java-字符串拼接效率对比/" class="article-date">
+	  <time datetime="2019-03-17T07:30:00.000Z" itemprop="datePublished">2019-03-17</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java基础/">Java基础</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/String/">String</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -275,41 +289,45 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/01/02/展望-2019/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/17/Java-字符串拼接效率对比/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 411(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 581(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><a href="https://mp.weixin.qq.com/s/fZ0MWLYRQOfMBpVDHwq21g" target="_blank" rel="noopener">回首 2018</a>，毕业、入职，名校光环不再，浪潮褪去，原来我一直在裸泳。</p>
-<p>作为已经工作半年的「职场新人」，仍有许多的不足和需要学习的地方。激情是年轻人应该拥有的东西，没有梦想，和咸鱼一样，我不甘心！</p>
-<p>制定好目标，坚持的执行下去，总会有好的结果。</p>
-<ol>
-<li><p>坚持看书，每天花一个小时看书。自己思考、总结，把书中的想法总结出来，提升了思维也锻炼了写作能力。</p>
-</li>
-<li><p>坚持写博客，从公司项目中了解框架，既熟悉了业务，也运用得了框架，这应该是头两年需要技术积累的东西。</p>
-</li>
-<li><p>坚持锻炼，体重控制在 130 斤应该是最完美的体重，向这个目标进军，现在 140 斤。</p>
-</li>
-</ol>
-<p>自己需要注意的地方：</p>
-<ol>
-<li><p>聆听的方式。别人与自己说话，学会聆听，学会体会别人话中表现的含义，不轻易打断别人，有时候还需要委婉地表达自己的想法。</p>
-</li>
-<li><p>注意社交，一个人闷着屋里，并不会造出什么轮子，随时了解外面发生的事，多个周围的同事交流，结交更多的朋友，体会不同人的想法、见解，开拓自己的视野。</p>
-</li>
-</ol>
-<p>唯一愿望：</p>
-<p>找一个可以一起吃饭、一起看电影、一起出去玩的女朋友。</p>
-<p>结语：</p>
-<p>人生就像一场马拉松，起步快的人，往往能提前看到美丽的风景，坚持久的人，必将得到丰厚的硕果，加油 2019 ！</p>
+        <p><img src="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/E06E2A8F7F51469DAFA40E6A9D43EA2B?ynotemdtimestamp=1552808544738" alt="image"><br>用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆…</p>
+<p>Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。</p>
+<p>本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。</p>
+<h3 id="三种方式"><a href="#三种方式" class="headerlink" title="三种方式"></a>三种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 方式 1</span><br><span class="line">String s = &quot;Hello&quot;;</span><br><span class="line">s += &quot;Hello&quot;;</span><br><span class="line"></span><br><span class="line">// 方式 2</span><br><span class="line">StringBuilder stringBuilder = new StringBuilder(&quot;Hello&quot;);</span><br><span class="line">stringBuilder.append(&quot;Hello&quot;);</span><br><span class="line"></span><br><span class="line">// 方式 3</span><br><span class="line">StringBuffer stringBuffer = new StringBuffer(&quot;Hello&quot;);</span><br><span class="line">stringBuffer.append(&quot;Hello&quot;);</span><br></pre></td></tr></table></figure>
+<p>自己写个主函数，将上面 3 个方法循环执行 10000 次；</p>
+<p><strong>执行时间</strong> t1 &gt; t3 &gt; t2，也就是说 StringBuilder.append() 拼接最快，String += 最慢。</p>
+<h3 id="源码解读"><a href="#源码解读" class="headerlink" title="源码解读"></a>源码解读</h3><ul>
+<li>StringBuilder.append() 拼接</li>
+</ul>
+<p>StringBuilder.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public final class StringBuilder</span><br><span class="line">    extends AbstractStringBuilder</span><br><span class="line">    implements java.io.Serializable, CharSequence</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public StringBuilder append(String str) &#123;</span><br><span class="line">    super.append(str);  // 调用父类 append 方法</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>AbstractStringBuilder.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public AbstractStringBuilder append(String str) &#123;</span><br><span class="line">    if (str == null)</span><br><span class="line">        return appendNull();</span><br><span class="line">    int len = str.length();</span><br><span class="line">    ensureCapacityInternal(count + len);</span><br><span class="line">    str.getChars(0, len, value, count);  // 调用 String 的 getChars 方法</span><br><span class="line">    count += len;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>String.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void getChars(int srcBegin, int srcEnd, char dst[], int dstBegin) &#123;</span><br><span class="line">    if (srcBegin &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(srcBegin);</span><br><span class="line">    &#125;</span><br><span class="line">    if (srcEnd &gt; value.length) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(srcEnd);</span><br><span class="line">    &#125;</span><br><span class="line">    if (srcBegin &gt; srcEnd) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(srcEnd - srcBegin);</span><br><span class="line">    &#125;</span><br><span class="line">    System.arraycopy(value, srcBegin, dst, dstBegin, srcEnd - srcBegin);  // 本地方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>从上面 3 段代码可知，StringBuilder.append 方法调用的是父类 AbstractStringBuilder.append，父类 append 方法调用了 String 的本地方法 System.arraycopy 实现</strong></p>
+<ul>
+<li>StringBuffer.append() 拼接</li>
+</ul>
+<p>StringBuilder.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public final class StringBuffer</span><br><span class="line">    extends AbstractStringBuilder</span><br><span class="line">    implements java.io.Serializable, CharSequence</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public synchronized StringBuffer append(String str) &#123;</span><br><span class="line">    toStringCache = null;</span><br><span class="line">    super.append(str);</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>StringBuffer.append 方法与 StringBuilder.append 方法类似，不同的是，append 方法加上了 synchronized 锁，说明该方法适用于多线程环境，但是加锁的过程需要耗时，所以执行时间比 StringBuilder.append 慢。</strong></p>
+<ul>
+<li>String += 拼接</li>
+</ul>
+<p>对下面代码进行编译，生成的 class 文件使用命令 javap -c Main.class，可以反编译得到图片中的字节码。</p>
+<p>可以看到 += 实际调用的是 StringBuilder.append() 方法，所以速度会比 StringBuilder 慢。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String s = &quot;Hello&quot;;</span><br><span class="line">    s = s + &quot; World&quot;;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/06E6477B2E6F4209B3DA88D5BF43E5F8?ynotemdtimestamp=1552808544738" alt="image"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>所以在需要拼接字符串的场合，尽量适用 StringBuilder.append() 方法，多线程环境下则推荐 StringBuffer.append() 方法，而 String += 拼接方式任何场合都不建议使用。</p>
 
       
     </div>
@@ -319,7 +337,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://suiyia.github.io/2019/01/02/展望-2019/" title="展望 2019 ！" target="_blank" rel="external">http://suiyia.github.io/2019/01/02/展望-2019/</a>
+      <a href="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/" title="Java 字符串拼接效率对比" target="_blank" rel="external">http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -367,10 +385,10 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/02/18/Redis简单介绍与Jedis常用操作/" title="Redis 简单介绍与 Jedis 常用操作"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
     
+    <li class="next">
+      <a href="/2019/02/18/Java-中的值传递/" title="Java 中的值传递 "><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
     <li class="toggle-toc">
@@ -505,9 +523,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     <script defer>
     var disqus_config = function () {
         
-            this.page.url = 'http://suiyia.github.io/2019/01/02/展望-2019/';
+            this.page.url = 'http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/';
         
-        this.page.identifier = '展望-2019';
+        this.page.identifier = 'Java-字符串拼接效率对比';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
