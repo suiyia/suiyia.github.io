@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Java 字符串拼接效率对比 | 菜鸟日常的博客</title>
+  <title>Java字符串拼接效率对比 | 菜鸟日常的博客</title>
   <meta name="description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
 <meta name="keywords" content="String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 字符串拼接效率对比">
+<meta property="og:title" content="Java字符串拼接效率对比">
 <meta property="og:url" content="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/index.html">
 <meta property="og:site_name" content="菜鸟日常">
 <meta property="og:description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/E06E2A8F7F51469DAFA40E6A9D43EA2B?ynotemdtimestamp=1552808544738">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/06E6477B2E6F4209B3DA88D5BF43E5F8?ynotemdtimestamp=1552808544738">
-<meta property="og:updated_time" content="2019-03-17T07:43:22.112Z">
+<meta property="og:updated_time" content="2019-03-24T05:52:39.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 字符串拼接效率对比">
+<meta name="twitter:title" content="Java字符串拼接效率对比">
 <meta name="twitter:description" content="用 Google photo 搜索关键词「String」，出现了上图，有兴趣的朋友可以试试，感觉发现了新大陆… Java 中有 3 种字符串的拼接方式，了解这三种拼接方式的实现，将有益于提高自己的代码质量。 本文主要讲解 String 对象的三种拼接方式，以及它们之间的效率对比。 三种方式1234567891011// 方式 1String s = &amp;quot;Hello&amp;quot;;s += &amp;">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/27422d1c5ab3fa95a4e668c46ec74791/E06E2A8F7F51469DAFA40E6A9D43EA2B?ynotemdtimestamp=1552808544738">
   <!-- Canonical links -->
@@ -205,7 +205,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java基础/">Java基础</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java基础/">Java基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -215,7 +215,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合/">集合</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -225,7 +225,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/String/" style="font-size: 13px;">String</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a>
+      <a href="/tags/String/" style="font-size: 13px;">String</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a> <a href="/tags/集合/" style="font-size: 14px;">集合</a>
     </div>
   </div>
 
@@ -234,7 +234,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -255,7 +255,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java 字符串拼接效率对比
+      Java字符串拼接效率对比
     </h1>
   
 
@@ -337,7 +337,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/" title="Java 字符串拼接效率对比" target="_blank" rel="external">http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/</a>
+      <a href="http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/" title="Java字符串拼接效率对比" target="_blank" rel="external">http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -385,9 +385,13 @@
   
   <ul class="pager pull-left">
     
+    <li class="prev">
+      <a href="/2019/03/24/ArraryList、LinkList和Vector的区别/" title="ArraryList、LinkList和Vector的区别"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
     
     <li class="next">
-      <a href="/2019/02/18/Java-中的值传递/" title="Java 中的值传递 "><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/02/18/Java-中的值传递/" title="Java中的值传递 "><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
