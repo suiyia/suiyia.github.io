@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="菜鸟日常">
 <meta property="og:description" content="简单总结 HashMap、Hashtable、ConcurrentHashMap 之间的区别，基于 JDK 1.8.0_191  先说结论，暂时有以下几个需要注意的不同点：  继承、实现接口不同 初始大小、扩容倍数不同 线程安全 NULL KEY，NULL VALUE 支持不同 计算 Hash 值的方式不同  1. 继承、实现接口不同12345678public class HashMap&amp;lt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T13:32:54.516Z">
+<meta property="og:updated_time" content="2019-04-07T13:36:54.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap、HashTable、ConcurrentHashMap 区别">
 <meta name="twitter:description" content="简单总结 HashMap、Hashtable、ConcurrentHashMap 之间的区别，基于 JDK 1.8.0_191  先说结论，暂时有以下几个需要注意的不同点：  继承、实现接口不同 初始大小、扩容倍数不同 线程安全 NULL KEY，NULL VALUE 支持不同 计算 Hash 值的方式不同  1. 继承、实现接口不同12345678public class HashMap&amp;lt">
@@ -246,8 +246,8 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-继承、实现接口不同"><span class="toc-number">1.</span> <span class="toc-text">1. 继承、实现接口不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-初始大小、扩容倍数不同"><span class="toc-number">2.</span> <span class="toc-text">2. 初始大小、扩容倍数不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-线程安全"><span class="toc-number">3.</span> <span class="toc-text">3. 线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-NULL-KEY，NULL-VALUE-支持不同"><span class="toc-number">4.</span> <span class="toc-text">4. NULL KEY，NULL VALUE 支持不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-key-的索引计算方法不同"><span class="toc-number">5.</span> <span class="toc-text">5. key 的索引计算方法不同</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
-    </li></nav>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-继承、实现接口不同"><span class="toc-number">1.</span> <span class="toc-text">1. 继承、实现接口不同</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-初始大小、扩容倍数不同"><span class="toc-number">1.1.</span> <span class="toc-text">2. 初始大小、扩容倍数不同</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-线程安全"><span class="toc-number">2.</span> <span class="toc-text">3. 线程安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-NULL-KEY，NULL-VALUE-支持不同"><span class="toc-number">3.</span> <span class="toc-text">4. NULL KEY，NULL VALUE 支持不同</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-key-的索引计算方法不同"><span class="toc-number">4.</span> <span class="toc-text">5. key 的索引计算方法不同</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    </nav>
   </div>
 </aside>
 
@@ -319,36 +319,36 @@
 <li>NULL KEY，NULL VALUE 支持不同</li>
 <li>计算 Hash 值的方式不同</li>
 </ol>
-<h4 id="1-继承、实现接口不同"><a href="#1-继承、实现接口不同" class="headerlink" title="1. 继承、实现接口不同"></a>1. 继承、实现接口不同</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class HashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;</span><br><span class="line">    implements Map&lt;K,V&gt;, Cloneable, Serializable &#123;&#125;</span><br><span class="line">    </span><br><span class="line">public class Hashtable&lt;K,V&gt; extends Dictionary&lt;K,V&gt;</span><br><span class="line">    implements Map&lt;K,V&gt;, Cloneable, java.io.Serializable &#123;    </span><br><span class="line"></span><br><span class="line">public class ConcurrentHashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;</span><br><span class="line">    implements ConcurrentMap&lt;K,V&gt;, Serializable &#123;</span><br></pre></td></tr></table></figure>
+<h1 id="1-继承、实现接口不同"><a href="#1-继承、实现接口不同" class="headerlink" title="1. 继承、实现接口不同"></a>1. 继承、实现接口不同</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class HashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;</span><br><span class="line">    implements Map&lt;K,V&gt;, Cloneable, Serializable &#123;&#125;</span><br><span class="line">    </span><br><span class="line">public class Hashtable&lt;K,V&gt; extends Dictionary&lt;K,V&gt;</span><br><span class="line">    implements Map&lt;K,V&gt;, Cloneable, java.io.Serializable &#123;    </span><br><span class="line"></span><br><span class="line">public class ConcurrentHashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;</span><br><span class="line">    implements ConcurrentMap&lt;K,V&gt;, Serializable &#123;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>HashMap、ConcurrentHashMap 都继承于 AbstractMap 抽象类，但 Hashtable 继承于 Dictionary 抽象类。</li>
 <li>AbstractMap 实现了 Map 接口，而 Dictionary 没有。这使得 AbstractMap 具有更多的功能，而 Dictionary 逐渐被弃用。</li>
 </ul>
-<h4 id="2-初始大小、扩容倍数不同"><a href="#2-初始大小、扩容倍数不同" class="headerlink" title="2. 初始大小、扩容倍数不同"></a>2. 初始大小、扩容倍数不同</h4><p>HashMap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16</span><br><span class="line"></span><br><span class="line">扩容部分代码：</span><br><span class="line">newThr = oldThr &lt;&lt; 1; // double threshold</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-初始大小、扩容倍数不同"><a href="#2-初始大小、扩容倍数不同" class="headerlink" title="2. 初始大小、扩容倍数不同"></a>2. 初始大小、扩容倍数不同</h2><p>HashMap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16</span><br><span class="line"></span><br><span class="line">扩容部分代码：</span><br><span class="line">newThr = oldThr &lt;&lt; 1; // double threshold</span><br></pre></td></tr></table></figure></p>
 <p>Hashtable<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public Hashtable() &#123;</span><br><span class="line">    this(11, 0.75f);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">扩容部分代码：</span><br><span class="line">int newCapacity = (oldCapacity &lt;&lt; 1) + 1;</span><br></pre></td></tr></table></figure></p>
 <p>ConcurrentHashMap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * The default initial table capacity.  Must be a power of 2</span><br><span class="line"> * (i.e., at least 1) and at most MAXIMUM_CAPACITY.</span><br><span class="line"> */</span><br><span class="line">private static final int DEFAULT_CAPACITY = 16;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>初始大小：HashMap、ConcurrentHashMap 都是 16，Hashtable 是 11</li>
 <li>扩容倍数：HashMap、ConcurrentHashMap 2 倍、Hashtable (2n + 1) 倍。</li>
 </ul>
-<h4 id="3-线程安全"><a href="#3-线程安全" class="headerlink" title="3. 线程安全"></a>3. 线程安全</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Hashtable:</span><br><span class="line">public synchronized V put(K key, V value) &#123;&#125;</span><br><span class="line"></span><br><span class="line">HashMap:</span><br><span class="line">public V put(K key, V value) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-线程安全"><a href="#3-线程安全" class="headerlink" title="3. 线程安全"></a>3. 线程安全</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Hashtable:</span><br><span class="line">public synchronized V put(K key, V value) &#123;&#125;</span><br><span class="line"></span><br><span class="line">HashMap:</span><br><span class="line">public V put(K key, V value) &#123;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Hashtable 添加元素方法加上了 synchronized 关键字，HashMap 没有，说明 HashMap 不适用于多线程环境。</li>
 <li>ConcurrentHashMap 添加元素时，只对需要变更的地方加锁。</li>
 </ul>
-<h4 id="4-NULL-KEY，NULL-VALUE-支持不同"><a href="#4-NULL-KEY，NULL-VALUE-支持不同" class="headerlink" title="4. NULL KEY，NULL VALUE 支持不同"></a>4. NULL KEY，NULL VALUE 支持不同</h4><p>通过观察它们的 put 方法，得到以下结论： </p>
+<h1 id="4-NULL-KEY，NULL-VALUE-支持不同"><a href="#4-NULL-KEY，NULL-VALUE-支持不同" class="headerlink" title="4. NULL KEY，NULL VALUE 支持不同"></a>4. NULL KEY，NULL VALUE 支持不同</h1><p>通过观察它们的 put 方法，得到以下结论： </p>
 <ul>
 <li>Hashtable、ConcurrentHashMap 的 key、value 都不能为 null。</li>
 <li>HashMap value 可以为 null，而 key 为 null 时，该元素会放在 HashMap 第一位。</li>
 </ul>
-<h4 id="5-key-的索引计算方法不同"><a href="#5-key-的索引计算方法不同" class="headerlink" title="5. key 的索引计算方法不同"></a>5. key 的索引计算方法不同</h4><p>计算元素存放位置，会经过两步转化。Object -&gt; int -&gt; index，先将 key 使用 hash 方法转换为一个整数数字，然后对整型数字进行转化，得到这个对象在 map 中的索引。</p>
+<h1 id="5-key-的索引计算方法不同"><a href="#5-key-的索引计算方法不同" class="headerlink" title="5. key 的索引计算方法不同"></a>5. key 的索引计算方法不同</h1><p>计算元素存放位置，会经过两步转化。Object -&gt; int -&gt; index，先将 key 使用 hash 方法转换为一个整数数字，然后对整型数字进行转化，得到这个对象在 map 中的索引。</p>
 <p>Hashtable<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int hash = key.hashCode();</span><br><span class="line">int index = (hash &amp; 0x7FFFFFFF) % tab.length;</span><br></pre></td></tr></table></figure></p>
 <p>HashMap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static final int hash(Object key) &#123;</span><br><span class="line">    int h;</span><br><span class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>Hashtable 直接使用对象的 hashCode，然后再使用除留余数法来获得最终的位置。</li>
 <li>HashMap 在对象的 hashCode 之上，将 hashCode 的高16位和低16位进行异或，得到最终的位置。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>后面学习将对 HashMap，ConcurrentHashMap 源码进行分析总结。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>后面学习将对 HashMap，ConcurrentHashMap 源码进行分析总结。</p>
 <p><a href="https://blog.csdn.net/varyall/article/details/81277296" target="_blank" rel="noopener">ConcurrentHashMap的扩容机制（jdk1.8）</a></p>
 <p><a href="http://www.10tiao.com/html/710/201903/2650123468/2.html" target="_blank" rel="noopener">HashMap 和Hashtable的区别</a></p>
 
