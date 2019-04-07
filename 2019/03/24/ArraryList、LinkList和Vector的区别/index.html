@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文基于 JDK 1.8.0_191  1. 源码对比 实现接口类对比 扩容机制对比 线程安全  1.1 实现接口类对比12345678910public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java.io.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/suiyia/images/master/20190324112747.jpeg?token=ALIF2JNoBZxx5ZeHPivS9QGmNve5iPdbks5clvlwwA%3D%3D">
-<meta property="og:updated_time" content="2019-03-24T05:53:46.262Z">
+<meta property="og:updated_time" content="2019-04-07T13:32:54.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ArraryList、LinkList和Vector的区别">
 <meta name="twitter:description" content="本文基于 JDK 1.8.0_191  1. 源码对比 实现接口类对比 扩容机制对比 线程安全  1.1 实现接口类对比12345678910public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java.io.">
@@ -244,6 +244,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-源码对比"><span class="toc-number">1.</span> <span class="toc-text">1. 源码对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-实现接口类对比"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 实现接口类对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-扩容机制对比"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 扩容机制对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-线程安全性"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 线程安全性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-增删改性能对比"><span class="toc-number">2.</span> <span class="toc-text">2. 增删改性能对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-总结"><span class="toc-number">3.</span> <span class="toc-text">3. 总结</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 
 <main class="main" role="main">
   <div class="content">

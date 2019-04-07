@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="菜鸟日常">
 <meta property="og:description" content="简单总结 HashMap、Hashtable、ConcurrentHashMap 之间的区别，基于 JDK 1.8.0_191  先说结论，暂时有以下几个需要注意的不同点：  继承、实现接口不同 初始大小、扩容倍数不同 线程安全 NULL KEY，NULL VALUE 支持不同 计算 Hash 值的方式不同  1. 继承、实现接口不同12345678public class HashMap&amp;lt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T13:26:29.468Z">
+<meta property="og:updated_time" content="2019-04-07T13:32:54.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap、HashTable、ConcurrentHashMap 区别">
 <meta name="twitter:description" content="简单总结 HashMap、Hashtable、ConcurrentHashMap 之间的区别，基于 JDK 1.8.0_191  先说结论，暂时有以下几个需要注意的不同点：  继承、实现接口不同 初始大小、扩容倍数不同 线程安全 NULL KEY，NULL VALUE 支持不同 计算 Hash 值的方式不同  1. 继承、实现接口不同12345678public class HashMap&amp;lt">
@@ -242,6 +242,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-继承、实现接口不同"><span class="toc-number">1.</span> <span class="toc-text">1. 继承、实现接口不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-初始大小、扩容倍数不同"><span class="toc-number">2.</span> <span class="toc-text">2. 初始大小、扩容倍数不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-线程安全"><span class="toc-number">3.</span> <span class="toc-text">3. 线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-NULL-KEY，NULL-VALUE-支持不同"><span class="toc-number">4.</span> <span class="toc-text">4. NULL KEY，NULL VALUE 支持不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-key-的索引计算方法不同"><span class="toc-number">5.</span> <span class="toc-text">5. key 的索引计算方法不同</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
+    </li></nav>
+  </div>
+</aside>
+
 
 <main class="main" role="main">
   <div class="content">
@@ -332,7 +341,7 @@
 <li>Hashtable、ConcurrentHashMap 的 key、value 都不能为 null。</li>
 <li>HashMap value 可以为 null，而 key 为 null 时，该元素会放在 HashMap 第一位。</li>
 </ul>
-<h4 id="6-key-的索引计算方法不同"><a href="#6-key-的索引计算方法不同" class="headerlink" title="6. key 的索引计算方法不同"></a>6. key 的索引计算方法不同</h4><p>计算元素存放位置，会经过两步转化。Object -&gt; int -&gt; index，先将 key 使用 hash 方法转换为一个整数数字，然后对整型数字进行转化，得到这个对象在 map 中的索引。</p>
+<h4 id="5-key-的索引计算方法不同"><a href="#5-key-的索引计算方法不同" class="headerlink" title="5. key 的索引计算方法不同"></a>5. key 的索引计算方法不同</h4><p>计算元素存放位置，会经过两步转化。Object -&gt; int -&gt; index，先将 key 使用 hash 方法转换为一个整数数字，然后对整型数字进行转化，得到这个对象在 map 中的索引。</p>
 <p>Hashtable<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int hash = key.hashCode();</span><br><span class="line">int index = (hash &amp; 0x7FFFFFFF) % tab.length;</span><br></pre></td></tr></table></figure></p>
 <p>HashMap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static final int hash(Object key) &#123;</span><br><span class="line">    int h;</span><br><span class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
