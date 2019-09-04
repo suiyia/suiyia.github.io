@@ -19,22 +19,21 @@
   <meta name="google-site-verification" content="7NlZEZ5Pcu59zF8uZnTPLANsXKxS93Bbs_hLIvwSJJY">
   
   
-  <title>Java中的值传递 | 菜鸟日常的博客</title>
-  <meta name="description" content="几个重要概念 实参、形参  形式参数：定义函数名和函数体时候使用的参数，目的用来接收调用该函数时传入的参数  实际参数：在调用有参函数时，主调函数与被调函数之间有数据传递关系。实际参数是调用有参方法的时候真正传递的内容。      12345678 public void tes(String name)&amp;#123; // 形式参数 name    System.out.println(name)">
+  <title>Log4j 2 基本概念 | 菜鸟日常的博客</title>
+  <meta name="description" content="日志框架分类日志框架按照功能可以分为日志接口、日志实现两部分。 编写程序时，推荐使用日志接口的 API 进行方法调用，然后使用对应的日志实现框架打印日志。  日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。  Apache Commons Logging Component，2014 年之后文档没有再更新  SLF4J（Simple Logging Facade">
+<meta name="keywords" content="Log4j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中的值传递">
-<meta property="og:url" content="http://suiyia.github.io/2019/02/18/Java-中的值传递/index.html">
+<meta property="og:title" content="Log4j 2 基本概念">
+<meta property="og:url" content="http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/index.html">
 <meta property="og:site_name" content="菜鸟日常">
-<meta property="og:description" content="几个重要概念 实参、形参  形式参数：定义函数名和函数体时候使用的参数，目的用来接收调用该函数时传入的参数  实际参数：在调用有参函数时，主调函数与被调函数之间有数据传递关系。实际参数是调用有参方法的时候真正传递的内容。      12345678 public void tes(String name)&amp;#123; // 形式参数 name    System.out.println(name)">
+<meta property="og:description" content="日志框架分类日志框架按照功能可以分为日志接口、日志实现两部分。 编写程序时，推荐使用日志接口的 API 进行方法调用，然后使用对应的日志实现框架打印日志。  日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。  Apache Commons Logging Component，2014 年之后文档没有再更新  SLF4J（Simple Logging Facade">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/5b893506b6477fb678c8a98ca5888a85/4C4F78841E6241959282C73A0BD3CD08?ynotemdtimestamp=1550503530839">
-<meta property="og:updated_time" content="2019-04-07T13:32:54.490Z">
+<meta property="og:updated_time" content="2019-09-04T07:00:04.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中的值传递">
-<meta name="twitter:description" content="几个重要概念 实参、形参  形式参数：定义函数名和函数体时候使用的参数，目的用来接收调用该函数时传入的参数  实际参数：在调用有参函数时，主调函数与被调函数之间有数据传递关系。实际参数是调用有参方法的时候真正传递的内容。      12345678 public void tes(String name)&amp;#123; // 形式参数 name    System.out.println(name)">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/5b893506b6477fb678c8a98ca5888a85/4C4F78841E6241959282C73A0BD3CD08?ynotemdtimestamp=1550503530839">
+<meta name="twitter:title" content="Log4j 2 基本概念">
+<meta name="twitter:description" content="日志框架分类日志框架按照功能可以分为日志接口、日志实现两部分。 编写程序时，推荐使用日志接口的 API 进行方法调用，然后使用对应的日志实现框架打印日志。  日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。  Apache Commons Logging Component，2014 年之后文档没有再更新  SLF4J（Simple Logging Facade">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://suiyia.github.io/2019/02/18/Java-中的值传递/index.html">
+  <link rel="canonical" href="http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/index.html">
   
     <link rel="alternate" href="/atom.xml" title="菜鸟日常" type="application/atom+xml">
   
@@ -259,26 +258,17 @@
 
   
   
-<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope="" itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    <nav id="toc" class="article-toc">
-      <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#几个重要概念"><span class="toc-number">1.</span> <span class="toc-text">几个重要概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个实例"><span class="toc-number">2.</span> <span class="toc-text">一个实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-    </nav>
-  </div>
-</aside>
-
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Java-中的值传递" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <article id="post-Log4j-2-基本概念" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Java中的值传递
+      Log4j 2 基本概念
     </h1>
   
 
@@ -286,17 +276,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/02/18/Java-中的值传递/" class="article-date">
-	  <time datetime="2019-02-18T15:12:00.000Z" itemprop="datePublished">2019-02-18</time>
+	<a href="/2019/09/04/Log4j-2-基本概念/" class="article-date">
+	  <time datetime="2019-09-04T06:52:00.000Z" itemprop="datePublished">2019-09-04</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Java基础/">Java基础</a>
+    <a class="article-category-link" href="/categories/日志/">日志</a>
   </span>
 
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Log4j/">Log4j</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -307,69 +302,102 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/02/18/Java-中的值传递/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/04/Log4j-2-基本概念/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="几个重要概念"><a href="#几个重要概念" class="headerlink" title="几个重要概念"></a>几个重要概念</h3><ul>
-<li><p><strong>实参、形参</strong></p>
+        <h1 id="日志框架分类"><a href="#日志框架分类" class="headerlink" title="日志框架分类"></a>日志框架分类</h1><p>日志框架按照功能可以分为日志接口、日志实现两部分。</p>
+<p>编写程序时，推荐使用<strong>日志接口</strong>的 API 进行方法调用，然后使用对应的<strong>日志实现框架</strong>打印日志。</p>
 <ul>
-<li><p>形式参数：定义函数名和函数体时候使用的参数，目的用来<strong>接收</strong>调用该函数时<strong>传入的参数</strong></p>
-</li>
-<li><p>实际参数：在调用有参函数时，主调函数与被调函数之间有数据传递关系。实际参数是<strong>调用有参方法的时候真正传递的内容</strong>。</p>
-</li>
-</ul>
-</li>
-</ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> public void tes(String name)&#123; // 形式参数 name</span><br><span class="line">    System.out.println(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    Test test = new Test();</span><br><span class="line">    test.tes(&quot;caijicoder&quot;); // 实际参数 caijicoder</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
+<li><p>日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。</p>
 <ul>
-<li><strong>值类型、引用类型：</strong></li>
+<li><p><a href="https://commons.apache.org/proper/commons-logging/" target="_blank" rel="noopener">Apache Commons Logging Component</a>，2014 年之后文档没有再更新</p>
+</li>
+<li><p><a href="https://www.slf4j.org/" target="_blank" rel="noopener">SLF4J（Simple Logging Facade for Java）</a></p>
+</li>
 </ul>
-<p>值类型就是<strong>基本数据类型</strong>，8 种基本类型<strong>除外</strong>的数据类型都是引用类型。</p>
-<p>两种类型分别表示两种内存分配方式。一个<strong>值类型</strong>数据直接在<strong>栈</strong>上分配，存储所包含的值，其值就代表数据本身。一个<strong>引用类型</strong>指向的数据在<strong>堆</strong>上分配，引用类型的值是这个堆上数据的地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int num = 10;</span><br><span class="line">String str = &quot;hello&quot;;</span><br></pre></td></tr></table></figure>
-<p>num 是基本类型（值类型），值就直接保存在变量中。<br>str 是引用类型，变量中保存的只是实际对象的地址（0x10），而不是 Hello 这个字符串。</p>
-<hr>
+</li>
+<li><p>日志实现，定义具体日志打印内容</p>
 <ul>
-<li><p><strong>值传递、引用传递：</strong></p>
+<li><p>JDKLog，java.util.logging.Logger</p>
+</li>
+<li><p><a href="http://logging.apache.org/log4j/1.2/" target="_blank" rel="noopener">Log4J</a>，2015 年开始已经停止维护</p>
+</li>
+<li><p><a href="https://logback.qos.ch/" target="_blank" rel="noopener">LOGBack</a>，继承于 Log4J</p>
+</li>
+<li><p><a href="https://logging.apache.org/log4j/2.x/" target="_blank" rel="noopener">Log4J2</a> Log4J 升级版，2019-08-06 版本更新至 2.12.1，API 相关用法不兼容 1.X 版本</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Log4j-2-内置概念"><a href="#Log4j-2-内置概念" class="headerlink" title="Log4j 2 内置概念"></a>Log4j 2 内置概念</h1><ul>
+<li>Markers：为某条日志添加标志位，使用 %marker 进行输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">    private static final Marker SQL_MARKER = MarkerManager.getMarker(&quot;SQL&quot;);</span><br><span class="line">    Marker markerA = MarkerManager.getMarker(&quot;Marker A&quot;);</span><br><span class="line">    Marker markerB = MarkerManager.getMarker(&quot;Marker B&quot;);</span><br><span class="line">    logger.debug(markerA,&quot;your name is &#123;&#125; &quot;,&quot;Jack&quot;);</span><br><span class="line">    logger.debug(markerB,&quot;your name is &#123;&#125; &quot;,&quot;Ma&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log4j.xml：</span><br><span class="line">&lt;PatternLayout pattern=&quot;%d&#123;HH:mm:ss.SSS&#125; %-5level %class&#123;36&#125; %L %M %marker - %msg%xEx%n&quot;/&gt;</span><br><span class="line"></span><br><span class="line">Console Out：</span><br><span class="line">10:14:02.639 DEBUG FlowTracing 60 test Marker A - your name is Jack </span><br><span class="line">10:14:02.642 DEBUG FlowTracing 61 test Marker B - your name is Ma</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>值传递（pass by value）：指在调用函数时，将实参复制一份传递到函数中，形参接收到的内容其实是实参的一个拷贝，函数对形参的修改并不会影响到实参</p>
+<li><p>Lookups：在配置文件中添加变量、使用变量</p>
 </li>
-<li><p>引用传递（pass by reference）：指在调用函数时，将实参的地址直接传递到函数中，在函数中对参数的修改将会影响到实参</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>值传递和引用传递属于函数调用时参数的<strong>求值策略</strong>（Evaluation Strategy），这是对调用函数时，求值和传值的方式的描述，并不指传递的内容的类型。</p>
-<p>也就是说，<strong>传递内容的类型是值类型还是引用类型（地址），与值传递、引用传递无关，并不能说传入的参数类型是值类型就是值传递</strong>。</p>
-<hr>
-<p><strong>接下来重点！！！</strong></p>
-<p><strong>对于值传递，无论是值类型还是引用类型，都会在调用栈上创建一个副本：</strong></p>
+<li><p>Appenders：定义日志事件输出方式（日志文件名称、路径、什么级别日志才能输出、文件大小等等），其实就是文件流输出定义。</p>
 <ul>
-<li><p><strong>对于值类型而言，这个副本就是整个原始值的复制，对这个副本的操作，不影响原始值的内容。</strong></p>
+<li>AsyncAppender 用另外的线程记录日志，默认使用 ArrayBlockingQueue 队列进行日志记录，当发生异常时，默认会忽略异常，记得手动开启，并使用FailoverAppender 对异常情况进行补充打印输出</li>
+<li>ConsoleAppender，控制台输出</li>
+<li>FailoverAppender，当主 Appender 失败时，它将起作用</li>
+<li>FileAppender，文件输出，当多个程序对同一文件进行输出时，各自程序之间的配置也不受影响</li>
+<li>JDBCAppender，直接写到数据库</li>
+<li>HttpAppender，http 请求发送到另外的服务接收，如果服务返回的不是 2XX，将会抛出异常。</li>
+<li>KafkaAppender，发送到 Kafka</li>
+<li>RollingFileAppender，可以滚动的文件输出，包含触发规则（触发滚动条件：时间、大小）、滚动规则（怎么进行更新：文件数量），默认日志文件个数为 7 个。</li>
+<li><a href="https://logging.apache.org/log4j/2.x/manual/appenders.html" target="_blank" rel="noopener">等等</a></li>
+</ul>
 </li>
-<li><p><strong>对于引用类型而言，其副本也只是这个引用的复制，指向的仍然是同一个对象。所以对副本的操作，会影响原始值。</strong></p>
+<li><p>Layouts：Appender 使用定义好的 LayOut 对 LogEvent 进行格式化输出，</p>
+<ul>
+<li>CSV Layouts，以 Comma Separated Value (CSV) 形式输出</li>
+<li>JSON Layout，JSON 格式输出</li>
+<li>Pattern Layout，用特殊的字符输出对应的内容，定制化强</li>
+<li>XML Layout</li>
+<li>Location Infomation，当日志中需要日志所在类、方法、代码行数这些信息时，会花费 1.3-5 倍的时间，相比不需要 Location Infomation 的场景。并且在使用异步的 Appender 时，默认的 Location Infomation 默认关闭，如果开启，会比不开启花费 30-100 倍的性能消耗</li>
+</ul>
+</li>
+<li><p>Filters：决定哪些事件可以输出，哪些事件不能输出。过滤结果有 3 个结果，ACCEPT（允许）, DENY（拒绝输出）or NEUTRAL（中立、默认）。</p>
+<ul>
+<li>BurstFilter，当每秒日志输出事件速率大于一定值，将会抛弃掉级别低的日志</li>
+<li>CompositeFilter，直接在 configuration 级别添加多个过滤器</li>
+<li>DynamicThresholdFilter，根据一些属性值去动态修改该条日志的输出级别</li>
+<li>MapFilter，如果 LogEvent 中的 MapMessage 内包含特定属性，就可以选择过滤</li>
+<li>MarkerFilter、NoMarkerFilter，对应定义或者未定义 Marker 的事件进行过滤</li>
+<li>RegexFilter，正则过滤 formatted or unformatted message</li>
+<li>ThreadContextMapFilter ，对 ThreadContextMap 中的内容进行过滤</li>
+<li>ThresholdFilter，对 Level 进行过滤</li>
+<li>TimeFilter，根据某个时间点、时间段进行过滤</li>
+</ul>
 </li>
 </ul>
-<p><img src="https://note.youdao.com/yws/public/resource/5b893506b6477fb678c8a98ca5888a85/4C4F78841E6241959282C73A0BD3CD08?ynotemdtimestamp=1550503530839" alt="upload successful"></p>
-<p><a href="https://www.zhihu.com/question/20628016/answer/28970414" target="_blank" rel="noopener">为什么 Java 只有值传递，但 C# 既有值传递，又有引用传递，这种语言设计有哪些好处？ - Hugo Gu的回答 - 知乎</a></p>
-<h3 id="一个实例"><a href="#一个实例" class="headerlink" title="一个实例"></a>一个实例</h3><p>定义 Person 类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public Person(String name, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Person&#123;&quot; +</span><br><span class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, age=&quot; + age +</span><br><span class="line">                &apos;&#125;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    private int X = 123;</span><br><span class="line"></span><br><span class="line">    public void updateVlue(int value)&#123;  // 传入基本数据类型</span><br><span class="line">        value = value + 1;</span><br><span class="line">        System.out.println(&quot;变量value: &quot;+value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void updateObject(Person person)&#123; // 传入引用类型</span><br><span class="line">        Person E = person;</span><br><span class="line">        E.setAge(21);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void swapObject(Person A,Person B)&#123;  // 传入引用类型</span><br><span class="line">        Person C = A;</span><br><span class="line">        A = B;</span><br><span class="line">        B = C;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 例子 1</span><br><span class="line">        Main main = new Main();</span><br><span class="line">        int X = 1;</span><br><span class="line">        main.updateVlue(X);</span><br><span class="line">        System.out.println(&quot;X 的值：&quot;+X); // X = 1</span><br><span class="line">        </span><br><span class="line">        // 例子 2</span><br><span class="line">        Person A = new Person(&quot;张三&quot;,20);</span><br><span class="line">        main.updateObject(A);</span><br><span class="line">        System.out.println(&quot;A: &quot;+A.toString());  // A: Person&#123;name=&apos;张三&apos;, age=21&#125;</span><br><span class="line">        </span><br><span class="line">        // 例子 3</span><br><span class="line">        Person C = new Person(&quot;C&quot;,10);</span><br><span class="line">        Person D = new Person(&quot;D&quot;,15);</span><br><span class="line">        main.swapObject(C,D);</span><br><span class="line">        System.out.println(&quot;C: &quot;+ C.toString());  // C: Person&#123;name=&apos;C&apos;, age=10&#125;</span><br><span class="line">        System.out.println(&quot;D: &quot;+ D.toString());  // D: Person&#123;name=&apos;D&apos;, age=15&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例子1：函数传入基本数据类型（值类型参数），由于 value 是 X 的一个副本，对 value 进行操作，并没有改变原来实参的值。</p>
-<p>例子2：函数传入引用类型参数，改变了原来的值。由于<strong>值传递</strong>的缘故，传入引用类型的参数时，其值是这个地址的拷贝，指向的仍然是同一个对象，所以发生了改变。这是值传递带来的效果，与传入的对象是值类型或者引用类型没有关系！</p>
-<p>例子3：函数传入引用类型，如果 Java 是引用传递， 那么 swapObject(Person A,Person B) 中的形参 A，B 接收的就是 C 和 D 的地址，对 A，B 进行交换应该能成功的，事实上 C 和 D 并没有交换，这从<strong>反面证明了 Java 不是引用传递。</strong></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.zhihu.com/question/31203609/answer/576030121" target="_blank" rel="noopener">Java 到底是值传递还是引用传递？ - Hollis的回答 - 知乎</a></p>
-<p><a href="https://juejin.im/post/5bce68226fb9a05ce46a0476" target="_blank" rel="noopener">这一次，彻底解决Java的值传递和引用传递</a></p>
+<h1 id="3-Java-API-用法"><a href="#3-Java-API-用法" class="headerlink" title="3. Java API 用法"></a>3. Java API 用法</h1><ul>
+<li><p>Flow Tracing</p>
+<p>  日志跟踪</p>
+</li>
+<li><p>Markers（标记）</p>
+<p>  对于有特定标识需求的地方，可以使用 Marker 进行标记，并且用 %marker 进行打印输出。</p>
+</li>
+<li><p>ThreadContext</p>
+<p>  Mapped Diagnostic Context（MDC）的实现，类似 request，可以存放 key-value 键值对，也可以销毁，使用 %X{key} 输出。</p>
+<p>  the MDC is a map which stores the context data of the particular thread where the context is running. </p>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%X&#123;id&#125; 输出 context map 中 key = id 的值</span><br><span class="line">%X 输出 context map 所有值</span><br><span class="line"></span><br><span class="line">public void test()&#123;</span><br><span class="line">    ThreadContext.put(&quot;id&quot;, &quot;321&quot;); // Add the fishtag;</span><br><span class="line">    ThreadContext.put(&quot;name&quot;, &quot;996&quot;); // Add the fishtag;</span><br><span class="line">    logger.debug(&quot;Message 1&quot;);</span><br><span class="line">    logger.debug(&quot;Message 2&quot;);</span><br><span class="line">    ThreadContext.clearAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>log4j-slf4j-impl 是 slf4j 转接到 log4j 2 的日志输出框架。</p>
+<p>slf4j-log4j12 是 slf4j 转接到 log4j 1.x 的日志输出框架 ，而 log4j 1.x 已经在 2015 年 8 月就停止更新了。</p>
+<p>log4j 官方建议升级到 log4j 2</p>
 
       
     </div>
@@ -379,7 +407,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://suiyia.github.io/2019/02/18/Java-中的值传递/" title="Java中的值传递" target="_blank" rel="external">http://suiyia.github.io/2019/02/18/Java-中的值传递/</a>
+      <a href="http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/" title="Log4j 2 基本概念" target="_blank" rel="external">http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -427,13 +455,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/03/17/Java-字符串拼接效率对比/" title="Java字符串拼接效率对比"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/02/18/Redis简单介绍与Jedis常用操作/" title="Redis 简单介绍与 Jedis 常用操作"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/08/10/浮点数整数转换精度丢失问题/" title="浮点数整数转换精度丢失问题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -569,9 +593,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     <script defer>
     var disqus_config = function () {
         
-            this.page.url = 'http://suiyia.github.io/2019/02/18/Java-中的值传递/';
+            this.page.url = 'http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/';
         
-        this.page.identifier = 'Java-中的值传递';
+        this.page.identifier = 'Log4j-2-基本概念';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

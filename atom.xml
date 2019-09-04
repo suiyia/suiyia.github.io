@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://suiyia.github.io/"/>
-  <updated>2019-08-10T09:51:13.086Z</updated>
+  <updated>2019-09-04T07:00:04.528Z</updated>
   <id>http://suiyia.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Log4j 2 基本概念</title>
+    <link href="http://suiyia.github.io/2019/09/04/Log4j-2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/</id>
+    <published>2019-09-04T06:52:00.000Z</published>
+    <updated>2019-09-04T07:00:04.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="日志框架分类"><a href="#日志框架分类" class="headerlink" title="日志框架分类"></a>日志框架分类</h1><p>日志框架按照功能可以分为日志接口、日志实现两部分。</p><p>编写程序时，推荐使用<strong>日志接口</strong>的 API 进行方法调用，然后使用对应的<strong>日志实现框架</strong>打印日志。</p><ul><li><p>日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。</p><ul><li><p><a href="https://commons.apache.org/proper/commons-logging/" target="_blank" rel="noopener">Apache Commons Logging Component</a>，2014 年之后文档没有再更新</p></li><li><p><a href="https://www.slf4j.org/" target="_blank" rel="noopener">SLF4J（Simple Logging Facade for Java）</a></p></li></ul></li><li><p>日志实现，定义具体日志打印内容</p><ul><li><p>JDKLog，java.util.logging.Logger</p></li><li><p><a href="http://logging.apache.org/log4j/1.2/" target="_blank" rel="noopener">Log4J</a>，2015 年开始已经停止维护</p></li><li><p><a href="https://logback.qos.ch/" target="_blank" rel="noopener">LOGBack</a>，继承于 Log4J</p></li><li><p><a href="https://logging.apache.org/log4j/2.x/" target="_blank" rel="noopener">Log4J2</a> Log4J 升级版，2019-08-06 版本更新至 2.12.1，API 相关用法不兼容 1.X 版本</p></li></ul></li></ul><h1 id="Log4j-2-内置概念"><a href="#Log4j-2-内置概念" class="headerlink" title="Log4j 2 内置概念"></a>Log4j 2 内置概念</h1><ul><li>Markers：为某条日志添加标志位，使用 %marker 进行输出</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">    private static final Marker SQL_MARKER = MarkerManager.getMarker(&quot;SQL&quot;);</span><br><span class="line">    Marker markerA = MarkerManager.getMarker(&quot;Marker A&quot;);</span><br><span class="line">    Marker markerB = MarkerManager.getMarker(&quot;Marker B&quot;);</span><br><span class="line">    logger.debug(markerA,&quot;your name is &#123;&#125; &quot;,&quot;Jack&quot;);</span><br><span class="line">    logger.debug(markerB,&quot;your name is &#123;&#125; &quot;,&quot;Ma&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">log4j.xml：</span><br><span class="line">&lt;PatternLayout pattern=&quot;%d&#123;HH:mm:ss.SSS&#125; %-5level %class&#123;36&#125; %L %M %marker - %msg%xEx%n&quot;/&gt;</span><br><span class="line"></span><br><span class="line">Console Out：</span><br><span class="line">10:14:02.639 DEBUG FlowTracing 60 test Marker A - your name is Jack </span><br><span class="line">10:14:02.642 DEBUG FlowTracing 61 test Marker B - your name is Ma</span><br></pre></td></tr></table></figure><ul><li><p>Lookups：在配置文件中添加变量、使用变量</p></li><li><p>Appenders：定义日志事件输出方式（日志文件名称、路径、什么级别日志才能输出、文件大小等等），其实就是文件流输出定义。</p><ul><li>AsyncAppender 用另外的线程记录日志，默认使用 ArrayBlockingQueue 队列进行日志记录，当发生异常时，默认会忽略异常，记得手动开启，并使用FailoverAppender 对异常情况进行补充打印输出</li><li>ConsoleAppender，控制台输出</li><li>FailoverAppender，当主 Appender 失败时，它将起作用</li><li>FileAppender，文件输出，当多个程序对同一文件进行输出时，各自程序之间的配置也不受影响</li><li>JDBCAppender，直接写到数据库</li><li>HttpAppender，http 请求发送到另外的服务接收，如果服务返回的不是 2XX，将会抛出异常。</li><li>KafkaAppender，发送到 Kafka</li><li>RollingFileAppender，可以滚动的文件输出，包含触发规则（触发滚动条件：时间、大小）、滚动规则（怎么进行更新：文件数量），默认日志文件个数为 7 个。</li><li><a href="https://logging.apache.org/log4j/2.x/manual/appenders.html" target="_blank" rel="noopener">等等</a></li></ul></li><li><p>Layouts：Appender 使用定义好的 LayOut 对 LogEvent 进行格式化输出，</p><ul><li>CSV Layouts，以 Comma Separated Value (CSV) 形式输出</li><li>JSON Layout，JSON 格式输出</li><li>Pattern Layout，用特殊的字符输出对应的内容，定制化强</li><li>XML Layout</li><li>Location Infomation，当日志中需要日志所在类、方法、代码行数这些信息时，会花费 1.3-5 倍的时间，相比不需要 Location Infomation 的场景。并且在使用异步的 Appender 时，默认的 Location Infomation 默认关闭，如果开启，会比不开启花费 30-100 倍的性能消耗</li></ul></li><li><p>Filters：决定哪些事件可以输出，哪些事件不能输出。过滤结果有 3 个结果，ACCEPT（允许）, DENY（拒绝输出）or NEUTRAL（中立、默认）。</p><ul><li>BurstFilter，当每秒日志输出事件速率大于一定值，将会抛弃掉级别低的日志</li><li>CompositeFilter，直接在 configuration 级别添加多个过滤器</li><li>DynamicThresholdFilter，根据一些属性值去动态修改该条日志的输出级别</li><li>MapFilter，如果 LogEvent 中的 MapMessage 内包含特定属性，就可以选择过滤</li><li>MarkerFilter、NoMarkerFilter，对应定义或者未定义 Marker 的事件进行过滤</li><li>RegexFilter，正则过滤 formatted or unformatted message</li><li>ThreadContextMapFilter ，对 ThreadContextMap 中的内容进行过滤</li><li>ThresholdFilter，对 Level 进行过滤</li><li>TimeFilter，根据某个时间点、时间段进行过滤</li></ul></li></ul><h1 id="3-Java-API-用法"><a href="#3-Java-API-用法" class="headerlink" title="3. Java API 用法"></a>3. Java API 用法</h1><ul><li><p>Flow Tracing</p><p>  日志跟踪</p></li><li><p>Markers（标记）</p><p>  对于有特定标识需求的地方，可以使用 Marker 进行标记，并且用 %marker 进行打印输出。</p></li><li><p>ThreadContext</p><p>  Mapped Diagnostic Context（MDC）的实现，类似 request，可以存放 key-value 键值对，也可以销毁，使用 %X{key} 输出。</p><p>  the MDC is a map which stores the context data of the particular thread where the context is running. </p></li></ul>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%X&#123;id&#125; 输出 context map 中 key = id 的值</span><br><span class="line">%X 输出 context map 所有值</span><br><span class="line"></span><br><span class="line">public void test()&#123;</span><br><span class="line">    ThreadContext.put(&quot;id&quot;, &quot;321&quot;); // Add the fishtag;</span><br><span class="line">    ThreadContext.put(&quot;name&quot;, &quot;996&quot;); // Add the fishtag;</span><br><span class="line">    logger.debug(&quot;Message 1&quot;);</span><br><span class="line">    logger.debug(&quot;Message 2&quot;);</span><br><span class="line">    ThreadContext.clearAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>log4j-slf4j-impl 是 slf4j 转接到 log4j 2 的日志输出框架。</p><p>slf4j-log4j12 是 slf4j 转接到 log4j 1.x 的日志输出框架 ，而 log4j 1.x 已经在 2015 年 8 月就停止更新了。</p><p>log4j 官方建议升级到 log4j 2</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;日志框架分类&quot;&gt;&lt;a href=&quot;#日志框架分类&quot; class=&quot;headerlink&quot; title=&quot;日志框架分类&quot;&gt;&lt;/a&gt;日志框架分类&lt;/h1&gt;&lt;p&gt;日志框架按照功能可以分为日志接口、日志实现两部分。&lt;/p&gt;
+&lt;p&gt;编写程序时，推荐使用&lt;strong&gt;日志接
+      
+    
+    </summary>
+    
+      <category term="日志" scheme="http://suiyia.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="Log4j" scheme="http://suiyia.github.io/tags/Log4j/"/>
+    
+  </entry>
   
   <entry>
     <title>浮点数整数转换精度丢失问题</title>
@@ -61,9 +87,9 @@
       <category term="Spring学习" scheme="http://suiyia.github.io/categories/Spring%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Springboot" scheme="http://suiyia.github.io/tags/Springboot/"/>
-    
       <category term="Redis" scheme="http://suiyia.github.io/tags/Redis/"/>
+    
+      <category term="Springboot" scheme="http://suiyia.github.io/tags/Springboot/"/>
     
   </entry>
   
