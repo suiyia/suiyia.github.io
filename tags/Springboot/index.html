@@ -39,6 +39,8 @@
   
   
   
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
   
 </head>
 
@@ -265,19 +267,19 @@
           
           <li><a href="/tags/String/">String</a></li>
           
+          <li><a href="/tags/Log4j/">Log4j</a></li>
+          
           <li><a href="/tags/Redis/">Redis</a></li>
           
           <li><a href="/tags/Springboot/">Springboot</a></li>
           
-          <li><a href="/tags/MyBatis/">MyBatis</a></li>
-          
           <li><a href="/tags/AOP/">AOP</a></li>
+          
+          <li><a href="/tags/MyBatis/">MyBatis</a></li>
           
           <li><a href="/tags/浮点数/">浮点数</a></li>
           
           <li><a href="/tags/加密算法/">加密算法</a></li>
-          
-          <li><a href="/tags/Log4j/">Log4j</a></li>
           
         </ul>
       </nav>
@@ -320,7 +322,7 @@
        <time datetime="2019-08-10T09:39:00.000Z" itemprop="datePublished">2019-08-10</time>
      </div>
      <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2019/08/10/Springboot-使用-MyBatis-实现增删改查/">Springboot 使用 MyBatis 实现增删改查</a>
+       <a class="article-link" href="/2019/08/10/Springboot-与-AOP-实现/">Springboot 与 AOP 实现</a>
      </h3>
    </div>
    
@@ -328,7 +330,7 @@
      
       <a href="/tags/Springboot/" class="label label-default mb">Springboot</a>
      
-      <a href="/tags/MyBatis/" class="label label-default mb">MyBatis</a>
+      <a href="/tags/AOP/" class="label label-default mb">AOP</a>
      
      
    </div>
@@ -346,7 +348,7 @@
        <time datetime="2019-08-10T09:39:00.000Z" itemprop="datePublished">2019-08-10</time>
      </div>
      <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2019/08/10/Springboot-与-AOP-实现/">Springboot 与 AOP 实现</a>
+       <a class="article-link" href="/2019/08/10/Springboot-使用-MyBatis-实现增删改查/">Springboot 使用 MyBatis 实现增删改查</a>
      </h3>
    </div>
    
@@ -354,7 +356,7 @@
      
       <a href="/tags/Springboot/" class="label label-default mb">Springboot</a>
      
-      <a href="/tags/AOP/" class="label label-default mb">AOP</a>
+      <a href="/tags/MyBatis/" class="label label-default mb">MyBatis</a>
      
      
    </div>
@@ -418,6 +420,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 
