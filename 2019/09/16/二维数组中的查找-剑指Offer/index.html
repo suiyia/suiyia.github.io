@@ -19,19 +19,19 @@
   <meta name="google-site-verification" content="7NlZEZ5Pcu59zF8uZnTPLANsXKxS93Bbs_hLIvwSJJY">
   
   
-  <title>剑指Offer题解|二维数组中的查找  | 菜鸟日常的博客</title>
-  <meta name="description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2） 空间复杂度 O（1）   从右下角开始，每行从左往右轮询：上面一行相同列">
+  <title>剑指Offer题解 | 二维数组中的查找  | 菜鸟日常的博客</title>
+  <meta name="description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2）  空间复杂度 O（1）    从右下角开始，每行从左往右轮询：上面一行相">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer题解|二维数组中的查找 ">
+<meta property="og:title" content="剑指Offer题解 | 二维数组中的查找 ">
 <meta property="og:url" content="http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/index.html">
 <meta property="og:site_name" content="菜鸟日常">
-<meta property="og:description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2） 空间复杂度 O（1）   从右下角开始，每行从左往右轮询：上面一行相同列">
+<meta property="og:description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2）  空间复杂度 O（1）    从右下角开始，每行从左往右轮询：上面一行相">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-17T15:17:26.233Z">
+<meta property="og:updated_time" content="2019-09-17T15:27:59.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer题解|二维数组中的查找 ">
-<meta name="twitter:description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2） 空间复杂度 O（1）   从右下角开始，每行从左往右轮询：上面一行相同列">
+<meta name="twitter:title" content="剑指Offer题解 | 二维数组中的查找 ">
+<meta name="twitter:description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 时间限制：1秒 空间限制：32768K 解题想法 常规思路：左上角开始，每行从左到右都轮询一次。  时间复杂度 O（N^2）  空间复杂度 O（1）    从右下角开始，每行从左往右轮询：上面一行相">
   <!-- Canonical links -->
   <link rel="canonical" href="http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/index.html">
   
@@ -260,6 +260,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题想法"><span class="toc-number">2.</span> <span class="toc-text">解题想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意点"><span class="toc-number">4.</span> <span class="toc-text">注意点</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 
 <main class="main" role="main">
   <div class="content">
@@ -270,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer题解|二维数组中的查找 
+      剑指Offer题解 | 二维数组中的查找 
     </h1>
   
 
@@ -322,20 +331,26 @@
 <h1 id="解题想法"><a href="#解题想法" class="headerlink" title="解题想法"></a>解题想法</h1><ul>
 <li><p>常规思路：左上角开始，每行从左到右都轮询一次。</p>
 <ul>
-<li>时间复杂度 O（N^2）</li>
-<li>空间复杂度 O（1）</li>
+<li><p>时间复杂度 O（N^2）</p>
+</li>
+<li><p>空间复杂度 O（1）</p>
+</li>
 </ul>
 </li>
 <li><p>从右下角开始，每行从左往右轮询：上面一行相同列的元素比当前元素小，右边同行元素比当前元素大，那么不用全部元素比较。</p>
 <ul>
-<li>时间复杂度：O(行高 + 列宽) </li>
-<li>空间复杂度：O(1)</li>
+<li><p>时间复杂度：O(行高 + 列宽) </p>
+</li>
+<li><p>空间复杂度：O(1)</p>
+</li>
 </ul>
 </li>
-<li><p>从右上角开始，从右往左。原理同上</p>
-</li>
-<li><p>从右下角开始，和常规思路类似</p>
-</li>
+</ul>
+<ul>
+<li>从右上角开始，从右往左。原理同上</li>
+</ul>
+<ul>
+<li>从右下角开始，和常规思路类似</li>
 </ul>
 <h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>M 行 N 列数组，寻找元素 K</p>
 <ul>
@@ -343,8 +358,10 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static boolean Find(int target, int [][] array) &#123;</span><br><span class="line"></span><br><span class="line">    int i = array.length - 1;</span><br><span class="line">    int j = 0;</span><br><span class="line">    while (i &gt;= 0 &amp;&amp; j &lt; array[0].length)&#123;</span><br><span class="line">        if (array[i][j] &gt; target) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;else if(array[i][j] &lt; target)&#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ul>
-<li>数组边界问题</li>
-<li>常规思路，遇到有序序列进行查找时，可以使用<strong>二分查找</strong>，时间复杂度将进一步降低，时间复杂度 Mlog(n)</li>
+<li><p>数组边界问题</p>
+</li>
+<li><p>常规思路，遇到有序序列进行查找时，可以使用<strong>二分查找</strong>，时间复杂度将进一步降低，时间复杂度 Mlog(n)</p>
+</li>
 </ul>
 
       
@@ -355,7 +372,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/" title="剑指Offer题解|二维数组中的查找 " target="_blank" rel="external">http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/</a>
+      <a href="http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/" title="剑指Offer题解 | 二维数组中的查找 " target="_blank" rel="external">http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -404,7 +421,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/17/替换空格-剑指Offer/" title="剑指Offer题解|替换空格"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/17/替换空格-剑指Offer/" title="剑指Offer题解 | 替换空格"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
