@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://suiyia.github.io/"/>
-  <updated>2019-09-17T15:29:07.988Z</updated>
+  <updated>2019-09-18T14:31:04.921Z</updated>
   <id>http://suiyia.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指Offer题解 | 从尾到头打印链表</title>
+    <link href="http://suiyia.github.io/2019/09/17/%E5%89%91%E6%8C%87Offer%E9%A2%98%E8%A7%A3-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
+    <id>http://suiyia.github.io/2019/09/17/剑指Offer题解-从尾到头打印链表/</id>
+    <published>2019-09-17T15:18:00.000Z</published>
+    <updated>2019-09-18T14:31:04.921Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</p><p>时间限制：1秒 空间限制：32768K</p><h1 id="解题想法"><a href="#解题想法" class="headerlink" title="解题想法"></a>解题想法</h1><ul><li><p>方法 1. 使用栈保存遍历链表的结果，然后 push 栈输出到 ArrayList</p></li><li><p>方法 2. 递归方式实现倒序输出</p></li></ul><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ul><li><strong>递归方式实现</strong></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; arrayList=new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">   public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</span><br><span class="line">       if (listNode != null)&#123;</span><br><span class="line">           printListFromTailToHead(listNode.next);</span><br><span class="line">           arrayList.add(listNode.val);</span><br><span class="line">       &#125;</span><br><span class="line">       return arrayList;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   class ListNode &#123;</span><br><span class="line">       int val;</span><br><span class="line">       ListNode next = null;</span><br><span class="line"></span><br><span class="line">           ListNode(int val) &#123;</span><br><span class="line">           this.val = val;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h1&gt;&lt;p&gt;输入一个链表，按链表从尾到头的顺序返回一个ArrayList。&lt;/p&gt;
+&lt;p&gt;时间限制：1秒 空间限制：32768K&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="剑指Offer" scheme="http://suiyia.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>剑指Offer题解 | 替换空格</title>
@@ -135,9 +159,9 @@
       <category term="Spring学习" scheme="http://suiyia.github.io/categories/Spring%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Springboot" scheme="http://suiyia.github.io/tags/Springboot/"/>
-    
       <category term="Redis" scheme="http://suiyia.github.io/tags/Redis/"/>
+    
+      <category term="Springboot" scheme="http://suiyia.github.io/tags/Springboot/"/>
     
   </entry>
   
