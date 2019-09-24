@@ -1,3 +1,6 @@
+http://suiyia.github.io/2019/09/24/剑指offer题解-调整数组顺序使奇数位于偶数前面/
+http://suiyia.github.io/2019/09/24/剑指offer题解-数值的整数次方/
+http://suiyia.github.io/2019/09/23/剑指offer题解-二进制中-1-的个数/
 http://suiyia.github.io/2019/09/23/剑指offer题解-矩形覆盖/
 http://suiyia.github.io/2019/09/23/剑指offer题解-变态跳台阶/
 http://suiyia.github.io/2019/09/23/剑指offer题解-跳台阶/
@@ -11,8 +14,8 @@ http://suiyia.github.io/2019/09/16/二维数组中的查找-剑指Offer/
 http://suiyia.github.io/2019/09/04/Log4j-2-基本概念/
 http://suiyia.github.io/2019/08/10/浮点数整数转换精度丢失问题/
 http://suiyia.github.io/2019/08/10/Springboot-项目运用-Redis-缓存数据/
-http://suiyia.github.io/2019/08/10/Springboot-与-AOP-实现/
 http://suiyia.github.io/2019/08/10/Springboot-使用-MyBatis-实现增删改查/
+http://suiyia.github.io/2019/08/10/Springboot-与-AOP-实现/
 http://suiyia.github.io/2019/04/07/HashMap、HashTable、ConcurrentHashMap-区别/
 http://suiyia.github.io/2019/03/24/ArraryList、LinkList和Vector的区别/
 http://suiyia.github.io/2019/03/17/Java-字符串拼接效率对比/
