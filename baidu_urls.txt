@@ -1,3 +1,7 @@
+http://suiyia.github.io/2019/12/03/Redis-使用规范总结/
+http://suiyia.github.io/2019/10/31/排序算法——直接插入排序/
+http://suiyia.github.io/2019/10/31/RedisTemplate-使用及-Err-问题分析总结/
+http://suiyia.github.io/2019/10/30/一致性Hash算法/
 http://suiyia.github.io/2019/10/18/Java-单例模式/
 http://suiyia.github.io/2019/10/16/ConcurrentHashMap-源码学习/
 http://suiyia.github.io/2019/10/15/HashMap-源码学习/
