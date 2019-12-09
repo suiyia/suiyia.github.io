@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://suiyia.github.io/"/>
-  <updated>2019-12-03T14:51:14.196Z</updated>
+  <updated>2019-12-09T14:48:25.461Z</updated>
   <id>http://suiyia.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>代理模式以及 Spring 中的代理实现</title>
+    <link href="http://suiyia.github.io/2019/12/04/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E4%BB%A5%E5%8F%8A-Spring-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://suiyia.github.io/2019/12/04/代理模式以及-Spring-中的代理实现/</id>
+    <published>2019-12-04T12:11:00.000Z</published>
+    <updated>2019-12-09T14:48:25.461Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Mon Dec 09 2019 22:48:52 GMT+0800 (GMT+08:00) --><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul><li>什么是代理模式</li><li>静态代理</li><li>JDK 自带的动态代理</li><li>CGLIB 动态代理</li><li>Spring 中用到的代理</li></ul><h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>意图：为其他对象提供一种代理，以控制对这个对象的访问。</p><p>例子：买火车票不一定要在火车站，去网上各个代理商那里也可以</p><p>代码思路：实体类 A 实现了接口 IA，而实体类 A 很复杂，那么使用实体类 B 去实现接口 IA，通过实体类 B 去满足功能。</p><p><strong>注意事项：</strong></p><p>1、和适配器模式的区别：适配器模式主要改变所考虑对象的接口，而代理模式不能改变所代理类的接口。</p><p>2、和装饰器模式的区别：装饰器模式为了增强功能，而代理模式是为了加以控制。</p><p><img src="/images\代理模式示例图.png" alt="upload successful"></p><h1 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h1><p>静态代理其实就是在程序运行之前，提前写好被代理方法的代理类，编译后运行。</p><p>代码示例：</p><p><a href="https://juejin.im/entry/5989712f6fb9a03c4c26fb3a" target="_blank" rel="noopener">JAVA中的静态代理、动态代理以及CGLIB动态代理</a></p><h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><p>通过反射机制，在运行时生成代理类</p><h2 id="JDK-动态代理"><a href="#JDK-动态代理" class="headerlink" title="JDK 动态代理"></a>JDK 动态代理</h2><p><strong>被代理的类需要是接口实现模式</strong></p><ol><li>java.lang.reflect.Proxy：生成动态代理类和对象；</li><li>java.lang.reflect.InvocationHandler（处理器接口）：通过 invoke 方法实现对真实角色的代理访问。</li></ol><h2 id="CGLIB-动态代理"><a href="#CGLIB-动态代理" class="headerlink" title="CGLIB 动态代理"></a>CGLIB 动态代理</h2><p><strong>通过改变字节码，对需要被代理的类，生成他的子类，子类去覆盖被代理类的方法</strong>，private、final 修饰的方法不会被重写。</p><h1 id="Spring-用到的代理"><a href="#Spring-用到的代理" class="headerlink" title="Spring 用到的代理"></a>Spring 用到的代理</h1><p>Spring AOP 其实就是代理模式实现</p><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Mon Dec 09 2019 22:48:52 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://suiyia.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Srping" scheme="http://suiyia.github.io/tags/Srping/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis 使用规范总结</title>
@@ -38,6 +63,31 @@
     
     
       <category term="Redis" scheme="http://suiyia.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java IO 基本概念</title>
+    <link href="http://suiyia.github.io/2019/11/20/Java-IO-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>http://suiyia.github.io/2019/11/20/Java-IO-基本概念/</id>
+    <published>2019-11-20T14:33:00.000Z</published>
+    <updated>2019-12-04T12:02:51.071Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Mon Dec 09 2019 22:33:26 GMT+0800 (GMT+08:00) --><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul><li>IO 分类</li><li>同步、异步、阻塞、非阻塞理解</li><li>BIO、NIO、AIO 介绍</li><li>Linux 5 种 IO 模型</li></ul><h1 id="IO-分类"><a href="#IO-分类" class="headerlink" title="IO 分类"></a>IO 分类</h1><ul><li>按传输数据方式：</li></ul><p>字节流：以 byte 为基本单位进行，XXXStream 表示字节流</p><p>字符流：以字符为基本单位，字符又根据编码方式不同，一个字符对应不同大小的 byte。XXXReader、xxxWriter 表示字符流相关类</p><p>字节流可以处理任何类型的数据，如图片，视频等；字符流只能处理字符类型的数据。</p><ul><li>按输入输出方向：</li></ul><p>输入流（InXXX）、输出流（OutXXX）</p><h1 id="同步、异步"><a href="#同步、异步" class="headerlink" title="同步、异步"></a>同步、异步</h1><p>调用者是否<strong>主动等待</strong>调用的返回结果，</p><p>同步和异步关注的是消息通信机制，即消息是怎么返回的，是直接返回还是通过回调返回。</p><p>同步和异步的区别最大在于异步的话调用者不需要等待处理结果，被调用者会通过回调等机制来通知调用者其返回结果。</p><h1 id="阻塞、非阻塞"><a href="#阻塞、非阻塞" class="headerlink" title="阻塞、非阻塞"></a>阻塞、非阻塞</h1><p>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的<strong>状态</strong>.</p><p>阻塞调用是指调用结果返回之前，当前线程会被<strong>挂起</strong>，不能执行其它业务。调用线程只有在得到结果之后才会返回。</p><p>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p><p>你妈妈让你烧水，小时候你比较笨啊，在那里傻等着水开（<strong>同步阻塞</strong>）。等你稍微再长大一点，你知道每次烧水的空隙可以去干点其他事，然后只需要时不时来看看水开了没有（<strong>同步非阻塞</strong>）。后来，你们家用上了水开了会发出声音的壶，这样你就只需要听到响声后就知道水开了，在这期间你可以随便干自己的事情，你需要去倒水了（<strong>异步非阻塞</strong>）。</p><p><a href="https://www.jianshu.com/p/aed6067eeac9" target="_blank" rel="noopener">聊聊同步、异步、阻塞与非阻塞</a></p><h1 id="IO-类"><a href="#IO-类" class="headerlink" title="IO 类"></a>IO 类</h1><p><img src="/images\io种类.png" alt="upload successful"></p><h1 id="BIO、NIO-和-AIO-的区别"><a href="#BIO、NIO-和-AIO-的区别" class="headerlink" title="BIO、NIO 和 AIO 的区别"></a>BIO、NIO 和 AIO 的区别</h1><ul><li><p>BIO 就是传统的 java.io 包，它是基于流模型实现的，交互的方式是同步、阻塞方式，也就是说在读入输入流或者输出流时，在读写动作完成之前，线程会一直阻塞在那里，它们之间的调用时可靠的线性顺序。它的有点就是代码比较简单、直观；缺点就是 IO 的效率和扩展性很低，容易成为应用性能瓶颈。</p></li><li><p>NIO 是 Java 1.4 引入的 java.nio 包，提供了 Channel、Selector、Buffer 等新的抽象，可以构建多路复用的、同步非阻塞 IO 程序，同时提供了更接近操作系统底层高性能的数据操作方式。</p></li><li><p>AIO 是 Java 1.7 之后引入的包，是 NIO 的升级版本，提供了异步非堵塞的 IO 操作方式，所以人们叫它 AIO（Asynchronous IO），异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p></li></ul><h1 id="Linux-5-种-IO-模型"><a href="#Linux-5-种-IO-模型" class="headerlink" title="Linux 5 种 IO 模型"></a>Linux 5 种 IO 模型</h1><p>Linux IO 模型中，会经历数据准备（等待数据到达并赋值到内核缓冲区），数据处理（从内核拷贝到进程）两个阶段l</p><ul><li>Blocking IO 同步阻塞</li></ul><p>进程阻塞在等待数据和处理数据阶段，啥也不干</p><p><img src="/images\BlockIO.png" alt="upload successful"></p><ul><li>NoBlocking IO 同步非阻塞</li></ul><p>进程轮询等待数据过程，若轮询时数据还没准备好，可以做其它事，当数据准备好之后，就阻塞在处理数据阶段，直至返回</p><p><img src="/images\noblockingIO.png" alt="upload successful"></p><ul><li>IO Multiplexing 多路复用</li></ul><p>内核每次<strong>轮询多个</strong>进程的等待数据过程，有一个准备好了，就执行后面的数据处理过程</p><p><img src="/images\io_multiplexing.png" alt="upload successful"></p><ul><li>Signal-Driven IO 信号驱动</li></ul><p>数据准备好时，进程收到信号，然后进程进行下一步的数据处理</p><p><img src="/images\signaldriven.png" alt="upload successful"></p><ul><li>Asynchronous IO</li></ul><p>进程在数据准备过程中处理其它事情，当数据等待和数据处理都完成之后，内核会向进程发送通知。</p><p><img src="/images\AsynchronousIO.png" alt="upload successful"></p><ul><li>五种 IO 模型比较</li></ul><p><img src="/images\五种IO模型比较.png" alt="upload successful"></p><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Mon Dec 09 2019 22:33:26 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;
+      
+    
+    </summary>
+    
+      <category term="IO" scheme="http://suiyia.github.io/categories/IO/"/>
+    
+    
+      <category term="IO" scheme="http://suiyia.github.io/tags/IO/"/>
     
   </entry>
   
@@ -435,56 +485,6 @@
     
     
       <category term="Docker" scheme="http://suiyia.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NGINX 配置端口转发</title>
-    <link href="http://suiyia.github.io/2019/10/13/NGINX-%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
-    <id>http://suiyia.github.io/2019/10/13/NGINX-配置端口转发/</id>
-    <published>2019-10-13T06:15:00.000Z</published>
-    <updated>2019-10-13T06:19:37.700Z</updated>
-    
-    <content type="html"><![CDATA[<!-- build time:Tue Oct 15 2019 23:07:47 GMT+0800 (GMT+08:00) --><h1 id="多个-Springboot-项目运行在不同端口，通过不同路径转发到不同端口"><a href="#多个-Springboot-项目运行在不同端口，通过不同路径转发到不同端口" class="headerlink" title="多个 Springboot 项目运行在不同端口，通过不同路径转发到不同端口"></a>多个 Springboot 项目运行在<strong>不同端口</strong>，通过<strong>不同路径</strong>转发到不同端口</h1><p><a href="http://127.0.0.1:8081/index" target="_blank" rel="noopener">http://127.0.0.1:8081/index</a> 访问 webA</p><p><a href="http://127.0.0.1:8082/index" target="_blank" rel="noopener">http://127.0.0.1:8082/index</a> 访问 webB</p><p><a href="http://127.0.0.1:8083/index" target="_blank" rel="noopener">http://127.0.0.1:8083/index</a> 访问 webC</p><p>修改后：</p><p><a href="http://127.0.0.1/a/index" target="_blank" rel="noopener">http://127.0.0.1/a/index</a> 访问 webA</p><p><a href="http://127.0.0.1/b/index" target="_blank" rel="noopener">http://127.0.0.1/b/index</a> 访问 webB</p><p><a href="http://127.0.0.1/c/index" target="_blank" rel="noopener">http://127.0.0.1/c/index</a> 访问 webC</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    ... </span><br><span class="line">    upstream weba &#123;</span><br><span class="line">server 127.0.0.1:8081;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">upstream webb &#123;</span><br><span class="line">server 127.0.0.1:8082;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">upstream webc &#123;</span><br><span class="line">server 127.0.0.1:8083;</span><br><span class="line">&#125;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    server &#123;</span><br><span class="line">        ...</span><br><span class="line">        location /a/ &#123;</span><br><span class="line">    proxy_pass http://weba/;</span><br><span class="line">    # proxy_pass http://127.0.0.1:8081/;   # 也可以直接写ip+端口</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /b/ &#123;</span><br><span class="line">    proxy_pass http://webb/; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /c/ &#123;</span><br><span class="line">    proxy_pass http://webc/; </span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="访问某个路径直接跳转到新页面"><a href="#访问某个路径直接跳转到新页面" class="headerlink" title="访问某个路径直接跳转到新页面"></a>访问某个路径直接跳转到新页面</h1><p>输入 <a href="http://127.0.0.1/blog" target="_blank" rel="noopener">http://127.0.0.1/blog</a> 就会跳转到百度首页<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /blog &#123;</span><br><span class="line">                rewrite ^  https://www.baidu.com;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure><p></p><h1 id="location-与-proxy-pass-斜杠问题"><a href="#location-与-proxy-pass-斜杠问题" class="headerlink" title="location 与 proxy_pass 斜杠问题"></a>location 与 proxy_pass 斜杠问题</h1><p><a href="https://blog.51cto.com/chenwenming/1203537" target="_blank" rel="noopener">nginx proxy_pass末尾神奇的斜线</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server.port=10240</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;/a&quot;)</span><br><span class="line">public String helloA(@RequestParam String name)&#123;</span><br><span class="line">    return &quot;Hello &quot;+ name +&quot; ! now time is &quot;+new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(System.currentTimeMillis());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>服务运行在 10240 端口，使用 <a href="http://127.0.0.1:10240/a?name=123" target="_blank" rel="noopener">http://127.0.0.1:10240/a?name=123</a> 即可输出结果</p><ul><li><p>proxy_pass 后面加上斜杠，访问 <a href="http://127.0.0.1/test1/a?name=123" target="_blank" rel="noopener">http://127.0.0.1/test1/a?name=123</a> 其实访问 <a href="http://127.0.0.1:10240/a?name=123" target="_blank" rel="noopener">http://127.0.0.1:10240/a?name=123</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~/test1/ &#123;</span><br><span class="line">proxy_pass http://127.0.0.1:10240/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>proxy_pass 后面没有斜杠，访问 <a href="http://127.0.0.1/test1/a?name=123" target="_blank" rel="noopener">http://127.0.0.1/test1/a?name=123</a> 它其实访问的是 <a href="http://127.0.0.1:10240/test1/a?name=123" target="_blank" rel="noopener">http://127.0.0.1:10240/test1/a?name=123</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ^~/test1/ &#123;</span><br><span class="line">proxy_pass http://127.0.0.1:10240;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><ul><li>unknown log format “main” in C:\nginx-1.17.3/conf/nginx.conf:28<br>打开nginx.conf，”main”错误是因为丢失了log_format选项，之前把他屏蔽掉了，修改之后问题解决。</li></ul><ul><li><p>listen 80 端口不生效<br>include /etc/nginx/sites-enabled/*; 注释掉，这个</p><p><a href="https://blog.csdn.net/yin138/article/details/79267169" target="_blank" rel="noopener">nginx 配置根目录不生效问题</a></p></li></ul><ul><li><p><a href="https://www.jb51.net/article/54190.htm" target="_blank" rel="noopener">权限问题导致Nginx 403 Forbidden错误的解决方法</a></p><p>于是在nginx.conf头部加入一行：user root;</p></li></ul><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/chenhuaping007/article/details/79997901" target="_blank" rel="noopener">nginx 同一个域名下部署多个工程</a></p><!-- rebuild by neat -->]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- build time:Tue Oct 15 2019 23:07:47 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;多个-Springboot-项目运行在不同端口，通过不同路径转发到不同端口&quot;&gt;&lt;a href=&quot;#多个-Springboot-项目运行
-      
-    
-    </summary>
-    
-      <category term="nginx" scheme="http://suiyia.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://suiyia.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM学习——垃圾回收</title>
-    <link href="http://suiyia.github.io/2019/10/13/JVM%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
-    <id>http://suiyia.github.io/2019/10/13/JVM学习——垃圾回收/</id>
-    <published>2019-10-13T04:32:00.000Z</published>
-    <updated>2019-10-24T14:16:28.922Z</updated>
-    
-    <content type="html"><![CDATA[<!-- build time:Mon Oct 28 2019 18:02:49 GMT+0800 (GMT+08:00) --><h1 id="确定垃圾"><a href="#确定垃圾" class="headerlink" title="确定垃圾"></a>确定垃圾</h1><ul><li><p>引用计数：给对象中添加一个引用计数器，每当有一个地方引用它，计数器就加 1；当引用失效，计数器就减 1；任何时候计数器为 0 的对象就是不可能再被使用的。存在对象之间相互循环引用的问题。</p></li><li><p>根搜索：如果在“GC roots”和一个对象之间没有可达路径，则称该对象是不可达的。要注意的是，不可达对象不等价于可回收对象，不可达对象变为可回收对象至少要经过两次标记过程。两次标记后仍然是可回收对象，则将面临回收。</p></li></ul><p>Java 四种引用类型：</p><ul><li><p>强引用：把一个对象赋给一个引用变量，这个引用变量就是一个强引用</p></li><li><p>软引用：用 SoftReference 类来实现，对于只有软引用的对象来说，当系统内存足够时它不会被回收，当系统内存空间不足时它会被回收。软引用通常用在对内存敏感的程序中。</p></li><li><p>弱引用：用 WeakReference 类来实现，它比软引用的生存期更短，对于只有弱引用的对象来说，只要垃圾回收机制一运行，不管 JVM 的内存空间是否足够，总会回收该对象占用的内存。</p></li><li><p>虚引用：PhantomReference 类来实现，它不能单独使用，必须和引用队列联合使用。虚引用的主要作用是跟踪对象被垃圾回收的状态。</p></li></ul><h1 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h1><ul><li><p>标记-清除：标记需要回收的对象然后统一回收。效率低、碎片多</p></li><li><p>复制： 类似 eden、survivor 将存活的对象复制到另外一块区。</p></li><li><p>标记-整理：结合标记-清除、复制。标记后不是清理对象，而是将存活对象移向内存的一端。然后清除端边界外的对象。</p></li><li><p>分代收集：主流垃圾回收算法，根据对象存活周期不同分配到不同区域。新生代中，每次收集都会有大量对象死去，所以可以选择复制算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p></li><li><p>分区收集：G1</p></li></ul><h1 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h1><ul><li><p>Serial ：简单而高效，单线程，是 Java 虚拟机运行在 Client 模式下默认的新生代垃圾收集器，新生代采用复制算法，老年代采用标记-整理算法。</p></li><li><p>ParNew：Serial 的多线程版本，多个线程<strong>并发</strong>进行垃圾回收，其它与 Serial 一样。它是许多运行在 Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器（真正意义上的并发收集器，后面会介绍到）配合工作。</p><ul><li><p>并行（Parallel） ：指多条垃圾收集线程并行工作，但此时用户线程仍然处于等待状态。</p></li><li><p>并发（Concurrent）：指用户线程与垃圾收集线程同时执行（但不一定是并行，可能会交替执行），用户程序在继续运行，而垃圾收集器运行在另一个CPU上。</p></li></ul></li><li><p>Parallel Scavenge：新生代垃圾收集器，同样使用复制算法，也是一个多线程的垃圾收集器，重点关注的是程序达到一个<strong>可控制的吞吐量</strong>，高吞吐量可以最高效率地利用 CPU 时间，尽快地完成程序的运算任务，主要适用于在后台运算而不需要太多交互的任务。<strong>自适应调节策略</strong>也是ParallelScavenge 收集器与 ParNew 收集器的一个重要区别。</p><blockquote><p>吞吐量=运行用户代码时间/(运行用户代码时间+垃圾收集时间)</p></blockquote></li><li><p>Serial Old：Serial 垃圾收集器年老代版本、标记-整理，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p></li><li><p>Parallel Old：使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p></li><li><p>CMS（Concurrent mark sweep）一种以获取最短回收停顿时间为目标的收集器，它而非常符合在注重用户体验的应用上使用。</p><p>运行过程：</p><ul><li><p>初始标记：标记一下 GC Roots 能直接关联的对象，暂停其他线程、速度很快</p></li><li><p>并发标记：GC tracing 过程，与用户线程一起工作</p></li><li><p>重新标记：修改并发标记期间，程序运行改变标记的部分，暂停其他线程。</p></li><li><p>并发清除：与用户线程一起工作，清除标记的区域。</p></li></ul></li><li><p>G1，标记-整理</p><ul><li><p>并行与并发：G1 能充分利用 CPU、多核环境下的硬件优势，使用多个 CPU（CPU或者CPU核心）来缩短 Stop-The-World 停顿时间。部分其他收集器原本需要停顿 Java 线程执行的 GC 动作，G1 收集器仍然可以通过并发的方式让 java 程序继续执行。</p></li><li><p>分代收集：虽然 G1 可以不需要其他收集器配合就能独立管理整个GC堆，但是还是保留了分代的概念。</p></li><li><p>空间整合：与 CMS 的“标记–清理”算法不同，G1 从整体来看是基于“标记整理”算法实现的收集器；从局部上来看是基于“复制”算法实现的。</p></li><li><p>可预测的停顿：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内。</p></li></ul></li></ul><p><img src="/images\GC垃圾回收器.png" alt="upload successful"></p><p><img src="/images\垃圾回收器组合使用.png" alt="upload successful"></p><h1 id="博客参考"><a href="#博客参考" class="headerlink" title="博客参考"></a>博客参考</h1><p>作者：SnailClimb<br>链接：<a href="https://juejin.im/post/5b85ea54e51d4538dd08f601" target="_blank" rel="noopener">https://juejin.im/post/5b85ea54e51d4538dd08f601</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p><!-- rebuild by neat -->]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- build time:Mon Oct 28 2019 18:02:49 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;确定垃圾&quot;&gt;&lt;a href=&quot;#确定垃圾&quot; class=&quot;headerlink&quot; title=&quot;确定垃圾&quot;&gt;&lt;/a&gt;确定垃圾&lt;/h1&gt;
-      
-    
-    </summary>
-    
-      <category term="JVM" scheme="http://suiyia.github.io/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="http://suiyia.github.io/tags/JVM/"/>
     
   </entry>
   
